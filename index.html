@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in Page</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/style/style.css">
 </head>
 <body>
 
@@ -17,9 +17,9 @@
 
         <div class="from-wrapper">
 
-            <form action="#" method="post" class="user-login-form">
+            <form action="#" method="post" class="user-login-form" onsubmit="handleLogin(event)">
                 <div class="img-wrapper">
-                    <img src="./1389952697.png" alt="Avatar" class="avatar">
+                    <img src="./assets/avatar/1389952697.png" alt="Avatar" class="avatar">
                 </div>
     
                 <div class="login-wrapper">
@@ -29,7 +29,7 @@
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
                         
-                    <button type="submit">Login</button>
+                    <button type="submit" >Login</button>
                     <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                     </label>
@@ -40,11 +40,20 @@
                     <span class="psw">Forgot <a href="#">password?</a></span>
                 </div>
             </form>
+            <div id="loader"></div>
+            <div>
+                <table>
+                    <tr id="item">
+                        <th></th>
+                    </tr>
+                </table>
+            </div>
         </div>
 
 
 
     </div>
+    <script src="./assets/js/index.js"></script>
     
 </body>
 </html>
