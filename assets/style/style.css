@@ -8,8 +8,14 @@ html,body{
     
     height: 100%;
 }
+button{
+    /* padding: 14px 20px;
+    margin: 8px 0; */
+    border: none;
+    cursor: pointer;
+}
 
-button {
+.submit-btn {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
@@ -84,4 +90,41 @@ input[type=email], input[type=password] {
 }
 #loader.display{
     visibility: visible;
+}
+.display-none{
+    display: none;
+}
+
+.dashboard-header{
+    height: 88px;
+}
+.dashboard-text-btn{
+    float: left;
+    width: 250px;
+}
+.dashboard-text-btn h2{
+    display: inline-block;
+    margin: 20px;
+}
+
+.dashboard-left-area{
+    margin-left: 250px;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center; */
+}
+.menu img{
+    width: 50px;
+}
+.dashboard-menu{
+    float: right;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
