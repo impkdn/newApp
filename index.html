@@ -12,7 +12,7 @@
     <div class="container">
         
         <!-- form wrapper -->
-        <div class="from-wrapper" style="display: none;">
+        <div class="from-wrapper" >
 
             <form action="#" method="post" class="user-login-form" onsubmit="handleLogin(event)">
                 <div class="img-wrapper">
@@ -41,10 +41,11 @@
         </div>
         
         <!-- loader -->
-        <div id="loader" style="display: none;"></div>
+        <div id="loader" ></div>
         
         <!-- dashboard  -->
         <div class="dashboard">
+            <!-- dashboard header -->
             <header class="dashboard-header">
                 <div class="dashboard-text-btn">
                     <h2>DASHBOARD</h2>
@@ -67,25 +68,76 @@
                             <img src="./assets/avatar/Avatar9.png" alt="user-image">
                         </span>
                         <div class="menu">
-                            <button>
+                            <button onclick="openMenu()">
                                 <span>
                                     <img src="./assets/avatar/2292434-200.png" alt="menu-icon">
                                 </span>
                             </button>
+                            <div class="dropDown-content" id="dropDown">
+                                <a href="#">Personal Info</a>
+                                <a href="#">Settings</a>
+                                <a href="#">Profile</a>
+                                <a href="#">Logout</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </header>
+
+            <div class="bottom-container">
+                <div class="navigation-wrapper">
+                    <div class="user-info">
+                        <span class="user-image">
+                            <img src="./assets/avatar/Avatar9.png" alt="User-Image">
+                        </span>
+                        <div class="user-details">
+                            <h3>Alex Aleson</h3>
+                            <p>Software developer</p>
+                            <p>Kolkata, India</p>
+                        </div>
+
+                    </div>
+                    <div class="nvabar-wrapper">
+                        <nav class="navbar">
+                            <ul class="nav-content">
+                                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    
+
+                </div>
+                <div class="dashboard-content">
+                    <input type="text" id="myInput" onkeyup="searchFromTable()" placeholder="Search for names.." title="Type in a name">
+                    
+                    <h2>Public API Entries</h2>
+                    <!-- table wrapper -->
+                    <div class="table-wrapper">
+                        <table class="item-table">
+                            <tr >
+                                <th>API</th>
+                                <th>Auth</th>
+                                <th>Category</th>
+                                <th>Cors</th>
+                                <th>Description</th>
+                                <th>HTTPS</th>
+                                <th>link</th>
+                            </tr>
+                            <tr id="item">
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         
-        <!-- table wrapper -->
-        <div class="table-wrapper">
-            <table class="item-table">
-                <tr id="item">
-                    <th></th>
-                </tr>
-            </table>
-        </div>
+        
         
 
 

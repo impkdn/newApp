@@ -1,4 +1,8 @@
 console.log("Hi");
+var openMenu = function () {
+    document.getElementById("dropDown").classList.toggle("display-block");
+    console.log("Hi");
+}
 
 function handleLogin(e){
     e.preventDefault();
@@ -10,7 +14,14 @@ function handleLogin(e){
     // console.log(userEmail);
     var password = document.getElementById("psw");
     var loader = document.querySelector("#loader");
+    var dashboard = document.querySelector(".dashboard")
     var formWrapper = document.querySelector(".from-wrapper");
+    function displayDashboard() {
+        dashboard.classList.add("display-block");
+
+        
+    }
+    
     function displayLoader() {
         loader.classList.add("display");
         setTimeout(() => {
@@ -31,14 +42,16 @@ function handleLogin(e){
     if (isValid) {
         alert("Form data is valid");
         formWrapper.classList.add("display-none");
-
+        
         displayLoader()
 
         fetch('https://api.publicapis.org/entries')
         .then((response) => response.json())
         .then((data) => {
+            
             hideLoader();
-            displayData(data)
+            // displayDashboard();
+            displayData(data);
         })
   
 
@@ -47,11 +60,12 @@ function handleLogin(e){
 
         function displayData(data, total = 4) {
             fetchedData = data;
-            console.log(fetchedData)
+            // console.log(fetchedData.entries[0][1])
             let item = '';
 
         for (let i = 0; i < total; i++) {
-            item += `<th>${data.entries[i].API}</th>`;
+
+            item += `<td>${data.entries[i].API}</td>`;
         }
         document.getElementById("item").innerHTML = item;
         }
@@ -64,5 +78,6 @@ function handleLogin(e){
     }else {
         alert("Form data is invalid");
     }
+    
 };
 
