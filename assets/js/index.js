@@ -50,7 +50,7 @@ function handleLogin(e){
         .then((data) => {
             
             hideLoader();
-            // displayDashboard();
+            displayDashboard();
             displayData(data);
         })
   
@@ -60,14 +60,27 @@ function handleLogin(e){
 
         function displayData(data, total = 4) {
             fetchedData = data;
-            // console.log(fetchedData.entries[0][1])
+            console.log(fetchedData)
             let item = '';
+            let txt = "";
 
         for (let i = 0; i < total; i++) {
-
-            item += `<td>${data.entries[i].API}</td>`;
+            var objectData = data.entries[i];
+            console.log(objectData);
+            var newRow = document.createElement("tr");
+            newRow.classList.add("myRow");
+            for (let x in objectData) {
+                txt += `<td>${objectData[x]}</td>`;
+                newRow.appendChild(txt);
+                console.log(newRow.innerHTML);
+                var items = document.getElementById("item").innerHTML;
+                // items.appendChild(newRow)
+            };
+            // for (let j = 0; j < 7; j++) {
+            // item += ``
+            //  }
+            // item += `<td>${data.entries[i].API}</td>`;
         }
-        document.getElementById("item").innerHTML = item;
         }
 
         // function showAll() {
