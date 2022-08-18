@@ -220,6 +220,7 @@ input[type=email], input[type=password] {
 .dashboard-content{
     height: 100%;
     margin-left: 250px;
+    overflow: scroll;
 }
 .item-table{
     border-collapse: collapse;
@@ -227,4 +228,19 @@ input[type=email], input[type=password] {
   width: 100%;
   border: 1px solid #ddd;
   text-align: center;
+  font-size: 18px;
+}
+.item-table tr{
+    border-bottom: 1px solid gray;
+}
+.item-table th {
+    background-color: rgb(143, 142, 141);
+    padding: 12px;
+}
+.item-table td{
+    padding: 12px;
+}
+.item-table tr.row-header, .item-table tr:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
