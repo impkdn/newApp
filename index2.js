@@ -60,64 +60,104 @@ function handleLogin(e){
 
         function displayData(data) {
             fetchedData = data.entries;
-            console.log(fetchedData)
-            let item = '';
-            let txt = "";
+            // console.log(fetchedData)
+            // let item = '';
+            // let txt = "";
             var myTable = document.querySelector(".item-table");
-            fetchedData.forEach( keys => {
-                var tableRow = document.createElement('tr');
+            for (let b = 0; b < fetchedData.length; b++) {
+                let y = fetchedData[b];
+                // console.log(y);
+                // let newArray = [];
+                let newArray = Object.values(y);
+                let newKeyArray = Object.keys(y);
                 
-                
-                console.log(keys);
-                
-                Object.values(keys).forEach(text => {
-                    // let objectProperty =  Object.getOwnPropertyNames(keys);
-                    // let linkProperty = objectProperty[5]
-                    // console.log(text);
-                    let cell = document.createElement('td');
-                    let textNode = document.createTextNode(text);
-                        // console.log(textNode);
-
-                        cell.appendChild(textNode);
-                        if (cell.innerText == "true") {
-                            cell.style.backgroundColor = "rgb(6 147 6)";
-                            cell.style.color = "#00070c"
-                            let httpsStatus = cell.innerText;
-                            cell.innerText = httpsStatus.toUpperCase();                  
-                        };
-                        if (cell.innerText == "false") {
-                          cell.style.backgroundColor = "rgb(126 1 1)" ;
-                          cell.style.color = "#00070c"
-                          let httpsStatus = cell.innerText;
-                          cell.innerText = httpsStatus.toUpperCase(); 
-                        };
-                        if (cell.innerText == "yes") {
-                          cell.style.backgroundColor = "rgb(6 147 6)" ;
-                          cell.style.color = "#00070c"
-                          let httpsStatus = cell.innerText;
-                          cell.innerText = httpsStatus.toUpperCase(); 
-                        }
-                        if (cell.innerText == "no") {
-                          cell.style.backgroundColor = "rgb(126 1 1)" ;
-                          cell.style.color = "#00070c"
-                          let httpsStatus = cell.innerText;
-                          cell.innerText = httpsStatus.toUpperCase(); 
-                        }
-                        if (cell.innerText == "unknown") {
-                          cell.style.backgroundColor = "rgb(162 177 165)" ;
-                          cell.style.color = "#00070c"
-                          let httpsStatus = cell.innerText;
-                          cell.innerText = httpsStatus.toUpperCase(); 
-                        }
+                console.log(newArray);
+                console.log(newKeyArray);
+                var row = document.createElement("tr");
                     
-                    cell.classList.add("cell-style")
+                for (let h = 0; h < 7; h++) {
+                 var textNode = document.createTextNode(newArray[h]);
+                 var aTag = document.createElement("a")
+                 var cell = document.createElement("td");
+                 if (newKeyArray[h] == "Link") {
+                    aTag.appendChild(textNode);
+                    cell.appendChild(aTag);
+                    aTag.setAttribute("href",newArray[h], "target",)
+                    aTag.setAttribute("target","blank")
 
-                    tableRow.appendChild(cell);
+                 } else {
+                     
+                     cell.appendChild(textNode);
+                 }
+                 
+                 row.appendChild(cell);
+                 
+                }
+                myTable.appendChild(row);
+            }
+
+            // function generateRow() {
+                
+            // }
+
+
+
+
+
+            // fetchedData.forEach( keys => {
+            //     var tableRow = document.createElement('tr');
+                
+                
+            //     console.log(keys);
+                
+            //     Object.values(keys).forEach(text => {
+            //         let objectProperty =  Object.getOwnPropertyNames(keys);
+            //         let linkProperty = objectProperty[5]
+            //         // console.log(text);
+            //         let cell = document.createElement('td');
+            //         let textNode = document.createTextNode(text);
+            //             // console.log(textNode);
+
+            //             cell.appendChild(textNode);
+            //             if (cell.innerText == "true") {
+            //                 cell.style.backgroundColor = "rgb(6 147 6)";
+            //                 cell.style.color = "#00070c"
+            //                 let httpsStatus = cell.innerText;
+            //                 cell.innerText = httpsStatus.toUpperCase();                  
+            //             };
+            //             if (cell.innerText == "false") {
+            //               cell.style.backgroundColor = "rgb(126 1 1)" ;
+            //               cell.style.color = "#00070c"
+            //               let httpsStatus = cell.innerText;
+            //               cell.innerText = httpsStatus.toUpperCase(); 
+            //             };
+            //             if (cell.innerText == "yes") {
+            //               cell.style.backgroundColor = "rgb(6 147 6)" ;
+            //               cell.style.color = "#00070c"
+            //               let httpsStatus = cell.innerText;
+            //               cell.innerText = httpsStatus.toUpperCase(); 
+            //             }
+            //             if (cell.innerText == "no") {
+            //               cell.style.backgroundColor = "rgb(126 1 1)" ;
+            //               cell.style.color = "#00070c"
+            //               let httpsStatus = cell.innerText;
+            //               cell.innerText = httpsStatus.toUpperCase(); 
+            //             }
+            //             if (cell.innerText == "unknown") {
+            //               cell.style.backgroundColor = "rgb(162 177 165)" ;
+            //               cell.style.color = "#00070c"
+            //               let httpsStatus = cell.innerText;
+            //               cell.innerText = httpsStatus.toUpperCase(); 
+            //             }
                     
-                });
+            //         cell.classList.add("cell-style")
 
-                myTable.appendChild(tableRow);
-            });
+            //         tableRow.appendChild(cell);
+                    
+            //     });
+
+            //     myTable.appendChild(tableRow);
+            // });
             
         
         }

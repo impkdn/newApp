@@ -3,18 +3,20 @@
     padding: 0px;
     box-sizing: border-box;
     
-}
-a{
-
-    text-decoration: none;
-
-}
-li{
-    list-style: none;
+    
 }
 html,body{
     
     height: 100%;
+    font-family: 'Inter', sans-serif;
+}
+a{
+
+    /* text-decoration: none; */
+
+}
+li{
+    list-style: none;
 }
 button{
     /* padding: 14px 20px;
@@ -114,14 +116,19 @@ input[type=email], input[type=password] {
     float: left;
     width: 250px;
     height: 100%;
+    border-right: 1px solid #e7e2e2;
 }
 .dashboard-text-btn h2{
+    font-size: 20px;
     display: inline-block;
     margin: 20px;
+    font-weight: 700;
+    line-height: 28px;
 }
 .dashboard{
     height: 100%;
     display: none;
+    background: #F7F8FA;
 }
 
 .dashboard-left-area{
@@ -146,6 +153,7 @@ input[type=email], input[type=password] {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
 }
 .dashboard-header-text{
     /* margin-top: 20px; */
@@ -186,18 +194,41 @@ input[type=email], input[type=password] {
 }
 .user-image{
     margin-left: 40px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
     display: inline-block;
+    /* margin-top: 20px; */
 }
+/* .user-info .user-image{
+    margin-top: 20px;
+} */
 .user-details{
     float: right;
-    margin: 5px;
+    margin: 5px 25px;
+}
+.user-details h3{
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
 }
 .user-details h3,p{
     margin: 2px;
 }
+.user-details p{
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 16px;
+    color: #B8BFCC;
+
+}
 .user-info{
     height: 110px;
+    border-bottom: 1px solid #e7e2e2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 .nvabar-wrapper{
     height: calc(100% - 110px);
@@ -214,19 +245,54 @@ input[type=email], input[type=password] {
     height: 100%;
 }
 .nav-link{
-    color: #3b3c3b;
-    font-size: 25px;
+    color: #869abf;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 30px;
 }
 .dashboard-content{
     height: 100%;
     margin-left: 250px;
     overflow: scroll;
 }
+.dashboard-content h2{
+    margin-left: 50px;
+    margin-bottom: 35px;
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight: 400;
+    color: #a5a5a5;
+}
+.cell-style{
+    color: #9a9e76;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    border: 1px solid gray;
+    padding: 2px;
+    margin: 2px;
+}
+.searchBar{
+    text-align: center;
+    width: 50%;
+    margin: 10px auto;
+}
+.searchBar input{
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    height: 35px;
+}
+::placeholder{
+       color: #98A2B3;
+       padding-left: 20px;
+}
 .item-table{
     border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid gray;
   text-align: center;
   font-size: 18px;
 }
@@ -243,4 +309,10 @@ input[type=email], input[type=password] {
 .item-table tr.row-header, .item-table tr:hover{
     background-color: #f1f1f1;
     cursor: pointer;
+}
+.row-header th{
+    border: 1px solid gray;
+}
+.color-red{
+    background-color: #f44336;
 }

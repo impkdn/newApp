@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in Page</title>
+    <link rel="stylesheet" href="./assets/style/reset.css">
     <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 
@@ -111,7 +116,10 @@
 
                 </div>
                 <div class="dashboard-content">
-                    <input type="text" id="myInput" onkeyup="searchFromTable()" placeholder="Search for names.." title="Type in a name">
+                    <div class="searchBar">
+                        <input type="text" id="myInput" onkeyup="searchFromTable()" placeholder="Search for API.." title="Type in a name">
+
+                    </div>
                     
                     <h2>Public API Entries</h2>
                     <!-- table wrapper -->
@@ -126,9 +134,7 @@
                                 <th onclick="sortTable(5)">link</th>
                                 <th onclick="sortTable(6)">Category</th>
                             </tr>
-                            <tr id="item">
-                                <td ></td>
-                            </tr>
+                            
                         </table>
                     </div>
                 </div>
@@ -143,7 +149,7 @@
 
 
     </div>
-    <script src="./assets/js/index.js"></script>
+    <script src="./index2.js"></script>
     
 </body>
 </html>
