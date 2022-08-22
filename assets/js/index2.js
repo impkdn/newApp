@@ -11,15 +11,11 @@ function handleLogin(e){
     var passwordValidationRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
     var minNumberofChars = 6;
     var userEmail = document.getElementById("u-email");
-    // console.log(userEmail);
     var password = document.getElementById("psw");
-    
     var dashboard = document.querySelector(".dashboard")
     var formWrapper = document.querySelector(".from-wrapper");
     function displayDashboard() {
         dashboard.classList.add("display-block");
-
-        
     }
     
     
@@ -69,38 +65,33 @@ function myFunction() {
         console.log(data);
         hideLoader();
         // displayDashboard();
-        displayData(data,50);
+        displayData(data);
     })
 
 
     let fetchedData;
 
 
-    function displayData(data, total = 4) {
+    function displayData(data) {
         fetchedData = data.entries;
-        // console.log(fetchedData)
-        // let item = '';
-        // let txt = "";
         var myTable = document.querySelector(".item-table");
-        for (let b = 0; b < total; b++) {
-            let y = fetchedData[b];
-            // console.log(y);
-            // let newArray = [];
-            let newArray = Object.values(y);
-            let newKeyArray = Object.keys(y);
+        for (let i = 0; i < fetchedData.length; i++) {
+            let objectApi = fetchedData[i];
+            let newArrayValues = Object.values(objectApi);
+            let newArrayKeys = Object.keys(objectApi);
             
-            console.log(newArray);
-            console.log(newKeyArray);
+            console.log(newArrayValues);
+            console.log(newArrayKeys);
             var row = document.createElement("tr");
                 
-            for (let h = 0; h < newKeyArray.length; h++) {
-             var textNode = document.createTextNode(newArray[h]);
+            for (let k = 0; k < newArrayKeys.length; k++) {
+             var textNode = document.createTextNode(newArrayValues[k]);
              var aTag = document.createElement("a")
              var cell = document.createElement("td");
-             if (newKeyArray[h] == "Link") {
+             if (newArrayKeys[k] == "Link") {
                 aTag.appendChild(textNode);
                 cell.appendChild(aTag);
-                aTag.setAttribute("href",newArray[h], "target",)
+                aTag.setAttribute("href",newArrayValues[k], "target",)
                 aTag.setAttribute("target","blank")
 
              } else {

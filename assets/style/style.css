@@ -80,13 +80,16 @@ input[type=email], input[type=password] {
     box-sizing: border-box;
   }
 #loader{
+    position: absolute;
+    top: 150px;
+    left: 50%;
     width: 2rem;
     height: 2rem;
     border: 5px solid royalblue;
     border-top: 6px solid rosybrown;
     border-radius: 100%;
     margin: auto;
-    visibility: hidden;
+    display: none;
     animation: spin 1s infinite linear;
 
 }
@@ -100,7 +103,7 @@ input[type=email], input[type=password] {
     }
 }
 #loader.display{
-    visibility: visible;
+    display: inline-block;
 }
 .display-none{
     display: none;
@@ -155,6 +158,9 @@ input[type=email], input[type=password] {
     align-items: center;
     height: 100%;
 }
+.table-wrapper{
+    position: relative;
+}
 .dashboard-header-text{
     /* margin-top: 20px; */
     height: 100%;
@@ -197,6 +203,9 @@ input[type=email], input[type=password] {
     /* margin-top: 15px; */
     display: inline-block;
     /* margin-top: 20px; */
+}
+.user-image img{
+    border-radius: 50%;
 }
 /* .user-info .user-image{
     margin-top: 20px;
@@ -249,6 +258,7 @@ input[type=email], input[type=password] {
     font-size: 20px;
     font-weight: 800;
     line-height: 30px;
+    text-decoration: none;
 }
 .dashboard-content{
     height: 100%;
@@ -295,17 +305,19 @@ input[type=email], input[type=password] {
   border: 1px solid gray;
   text-align: center;
   font-size: 18px;
+  /* word-wrap: break-word; */
 }
 .item-table tr{
     border-bottom: 1px solid gray;
 }
 .item-table th {
     background-color: rgb(143, 142, 141);
-    padding: 12px;
+    padding: 5px 35px;
 }
 .item-table td{
     padding: 12px;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
+    /* border: 1px solid #dddbdb; */
 }
 .item-table tr.row-header, .item-table tr:hover{
     background-color: #f1f1f1;
@@ -313,6 +325,11 @@ input[type=email], input[type=password] {
 }
 .row-header th{
     border: 1px solid gray;
+    position: relative;
+}
+.row-header th button{
+   position: absolute;
+   right: 15px;
 }
 .color-red{
     background-color: #f44336;
