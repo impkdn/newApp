@@ -127,7 +127,7 @@ input[type=email], input[type=password] {
 }
 .dashboard{
     height: 100%;
-    display: none;
+    /* display: none; */
     background: #F7F8FA;
 }
 
@@ -305,6 +305,7 @@ input[type=email], input[type=password] {
 }
 .item-table td{
     padding: 12px;
+    word-wrap: break-word;
 }
 .item-table tr.row-header, .item-table tr:hover{
     background-color: #f1f1f1;
@@ -315,4 +316,19 @@ input[type=email], input[type=password] {
 }
 .color-red{
     background-color: #f44336;
+}
+.modified-cell-true{
+    background-color: #04AA6D;
+    text-transform: capitalize;
+}
+.modified-cell-false{
+    
+    text-transform: capitalize;
+    background-color: #f44336;
+}
+.modified-cell-unknown{
+    
+    text-transform: capitalize;
+    background-color: #5e3431;
+    color: #04AA6D;
 }

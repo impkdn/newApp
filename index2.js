@@ -13,7 +13,7 @@ function handleLogin(e){
     var userEmail = document.getElementById("u-email");
     // console.log(userEmail);
     var password = document.getElementById("psw");
-    var loader = document.querySelector("#loader");
+    
     var dashboard = document.querySelector(".dashboard")
     var formWrapper = document.querySelector(".from-wrapper");
     function displayDashboard() {
@@ -22,15 +22,7 @@ function handleLogin(e){
         
     }
     
-    function displayLoader() {
-        loader.classList.add("display");
-        setTimeout(() => {
-            loader.classList.remove("display");
-        }, 5000)
-    }
-    function hideLoader() {
-        loader.classList.remove("display")
-    }
+    
     if ( !emailValidationRegex.test(userEmail.value)) {
         alert("Please enter valid Email")
         isValid = false;       
@@ -43,124 +35,9 @@ function handleLogin(e){
         alert("Form data is valid");
         formWrapper.classList.add("display-none");
         
-        displayLoader()
-
-        fetch('https://api.publicapis.org/entries')
-        .then((response) => response.json())
-        .then((data) => {
-            
-            hideLoader();
-            displayDashboard();
-            displayData(data);
-        })
-  
-
-        let fetchedData;
-
-
-        function displayData(data) {
-            fetchedData = data.entries;
-            // console.log(fetchedData)
-            // let item = '';
-            // let txt = "";
-            var myTable = document.querySelector(".item-table");
-            for (let b = 0; b < fetchedData.length; b++) {
-                let y = fetchedData[b];
-                // console.log(y);
-                // let newArray = [];
-                let newArray = Object.values(y);
-                let newKeyArray = Object.keys(y);
-                
-                console.log(newArray);
-                console.log(newKeyArray);
-                var row = document.createElement("tr");
-                    
-                for (let h = 0; h < 7; h++) {
-                 var textNode = document.createTextNode(newArray[h]);
-                 var aTag = document.createElement("a")
-                 var cell = document.createElement("td");
-                 if (newKeyArray[h] == "Link") {
-                    aTag.appendChild(textNode);
-                    cell.appendChild(aTag);
-                    aTag.setAttribute("href",newArray[h], "target",)
-                    aTag.setAttribute("target","blank")
-
-                 } else {
-                     
-                     cell.appendChild(textNode);
-                 }
-                 
-                 row.appendChild(cell);
-                 
-                }
-                myTable.appendChild(row);
-            }
-
-            // function generateRow() {
-                
-            // }
-
-
-
-
-
-            // fetchedData.forEach( keys => {
-            //     var tableRow = document.createElement('tr');
-                
-                
-            //     console.log(keys);
-                
-            //     Object.values(keys).forEach(text => {
-            //         let objectProperty =  Object.getOwnPropertyNames(keys);
-            //         let linkProperty = objectProperty[5]
-            //         // console.log(text);
-            //         let cell = document.createElement('td');
-            //         let textNode = document.createTextNode(text);
-            //             // console.log(textNode);
-
-            //             cell.appendChild(textNode);
-            //             if (cell.innerText == "true") {
-            //                 cell.style.backgroundColor = "rgb(6 147 6)";
-            //                 cell.style.color = "#00070c"
-            //                 let httpsStatus = cell.innerText;
-            //                 cell.innerText = httpsStatus.toUpperCase();                  
-            //             };
-            //             if (cell.innerText == "false") {
-            //               cell.style.backgroundColor = "rgb(126 1 1)" ;
-            //               cell.style.color = "#00070c"
-            //               let httpsStatus = cell.innerText;
-            //               cell.innerText = httpsStatus.toUpperCase(); 
-            //             };
-            //             if (cell.innerText == "yes") {
-            //               cell.style.backgroundColor = "rgb(6 147 6)" ;
-            //               cell.style.color = "#00070c"
-            //               let httpsStatus = cell.innerText;
-            //               cell.innerText = httpsStatus.toUpperCase(); 
-            //             }
-            //             if (cell.innerText == "no") {
-            //               cell.style.backgroundColor = "rgb(126 1 1)" ;
-            //               cell.style.color = "#00070c"
-            //               let httpsStatus = cell.innerText;
-            //               cell.innerText = httpsStatus.toUpperCase(); 
-            //             }
-            //             if (cell.innerText == "unknown") {
-            //               cell.style.backgroundColor = "rgb(162 177 165)" ;
-            //               cell.style.color = "#00070c"
-            //               let httpsStatus = cell.innerText;
-            //               cell.innerText = httpsStatus.toUpperCase(); 
-            //             }
-                    
-            //         cell.classList.add("cell-style")
-
-            //         tableRow.appendChild(cell);
-                    
-            //     });
-
-            //     myTable.appendChild(tableRow);
-            // });
-            
+        window.location = "./dashboard.html";
         
-        }
+       
 
         // function showAll() {
         //     displayData(fetchedData, 200)
@@ -172,6 +49,91 @@ function handleLogin(e){
     }
     
 };
+var loader = document.querySelector("#loader");
+function displayLoader() {
+    loader.classList.add("display");
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000)
+}
+function hideLoader() {
+    loader.classList.remove("display")
+}
+
+function myFunction() {
+    displayLoader()
+        
+    fetch('https://api.publicapis.org/entries')
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+        hideLoader();
+        // displayDashboard();
+        displayData(data,50);
+    })
+
+
+    let fetchedData;
+
+
+    function displayData(data, total = 4) {
+        fetchedData = data.entries;
+        // console.log(fetchedData)
+        // let item = '';
+        // let txt = "";
+        var myTable = document.querySelector(".item-table");
+        for (let b = 0; b < total; b++) {
+            let y = fetchedData[b];
+            // console.log(y);
+            // let newArray = [];
+            let newArray = Object.values(y);
+            let newKeyArray = Object.keys(y);
+            
+            console.log(newArray);
+            console.log(newKeyArray);
+            var row = document.createElement("tr");
+                
+            for (let h = 0; h < newKeyArray.length; h++) {
+             var textNode = document.createTextNode(newArray[h]);
+             var aTag = document.createElement("a")
+             var cell = document.createElement("td");
+             if (newKeyArray[h] == "Link") {
+                aTag.appendChild(textNode);
+                cell.appendChild(aTag);
+                aTag.setAttribute("href",newArray[h], "target",)
+                aTag.setAttribute("target","blank")
+
+             } else {
+                 
+                cell.appendChild(textNode);
+                console.log(cell.innerText)
+            }
+                
+            if (cell.innerText == "true") {
+                cell.classList.add("modified-cell-true")
+            }
+            if (cell.innerText == "false") {
+                cell.classList.add("modified-cell-false")
+            }
+            if (cell.innerText == "yes") {
+                cell.classList.add("modified-cell-true")
+            }
+            if (cell.innerText == "no") {
+                cell.classList.add("modified-cell-false")
+            }
+            if (cell.innerText == "unknown") {
+                cell.classList.add("modified-cell-unknown")
+            }
+
+             row.appendChild(cell);
+             
+            }
+            myTable.appendChild(row);
+        }
+    
+    }
+}
+
 function searchFromTable() {
     let input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -193,62 +155,7 @@ function searchFromTable() {
     }
 }
 
-// function sortTable(n) {
-//     let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-//     table = document.querySelector(".item-table");
-//     switching = true;
-//     console.log("hi sort");
-//     //Set the sorting direction to ascending:
-//     dir = "asc"; 
-//     /*Make a loop that will continue until
-//     no switching has been done:*/
-//     while (switching) {
-//       //start by saying: no switching is done:
-//       switching = false;
-//       rows = table.rows;
-//     //   console.log(rows);
-//       /*Loop through all table rows (except the
-//       first, which contains table headers):*/
-//       for (i = 1; i < (rows.length - 1); i++) {
-//         //start by saying there should be no switching:
-//         shouldSwitch = false;
-//         /*Get the two elements you want to compare,
-//         one from current row and one from the next:*/
-//         x = rows[i].getElementsByTagName("TD")[n];
-//         y = rows[i + 1].getElementsByTagName("TD")[n];
-//         /*check if the two rows should switch place,
-//         based on the direction, asc or desc:*/
-//         if (dir == "asc") {
-//           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-//             //if so, mark as a switch and break the loop:
-//             shouldSwitch= true;
-//             break;
-//           }
-//         } else if (dir == "desc") {
-//           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-//             //if so, mark as a switch and break the loop:
-//             shouldSwitch = true;
-//             break;
-//           }
-//         }
-//       }
-//       if (shouldSwitch) {
-//         /*If a switch has been marked, make the switch
-//         and mark that a switch has been done:*/
-//         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-//         switching = true;
-//         //Each time a switch is done, increase this count by 1:
-//         switchcount ++;      
-//       } else {
-//         /*If no switching has been done AND the direction is "asc",
-//         set the direction to "desc" and run the while loop again.*/
-//         if (switchcount == 0 && dir == "asc") {
-//           dir = "desc";
-//           switching = true;
-//         }
-//       }
-//     }
-//   }
+
 
   const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
 
