@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body >
+<body onload="getUsers()">
     <!-- dashboard  -->
     <div class="dashboard">
         <!-- dashboard header -->
@@ -43,10 +43,10 @@
                             </span>
                         </button>
                         <div class="dropDown-content" id="dropDown">
-                            <a href="#">Personal Info</a>
+                            <a href="./profile.html">Personal Info</a>
                             <a href="#">Settings</a>
                             <a href="#">Profile</a>
-                            <a href="#">Logout</a>
+                            <a href="./index.html">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -56,11 +56,11 @@
         <div class="bottom-container">
             <div class="navigation-wrapper">
                 <div class="user-info">
-                    <span class="user-image" id=" profile-image">
+                    <span class="profile-image user-image" >
                         <!-- <img src="./assets/avatar/Avatar9.png" alt="User-Image"> -->
                     </span>
                     <div class="user-details">
-                        <h3>Alex Aleson</h3>
+                        <h3 class="user-name"></h3>
                         <p>Software developer</p>
                         <p>Kolkata, India</p>
                     </div>
@@ -79,16 +79,19 @@
                 
 
             </div>
-            <div class="dashboard-content">
+            <div class="dashboard-content overflow-x-hidden">
                 <div class="userinformation">
-                    <p >NAME: <span class="u-name"></span></p>
-                    <p>GENDER: <span class="u-gender"></span></p>
-                    <p>EMAIL: <span class="u-email"></span></p>
-                    <p>PH. NO: <span class="u-ph"></span></p>
-                    <p>ALTERNET PH: <span class="u-cell"></span></p>
-                    <p>DOB: <span class="u-dob"></span></p>
-                    <p>AGE: <span class="u-age"></span></p>
-                    <p>ADDRESS: <span class="u-address"></span></p>
+                    <p  class="user-profile"><span class="user-profile-details"> NAME:</span> <span class="u-name"></span></p> <br>
+                    <p class="user-profile"><span class="user-profile-details ">GENDER:</span>  <span class="u-gender text-transform"></span></p> <br>
+                    <p class="user-profile"><span class="user-profile-details"> EMAIL:</span> <span class="u-email"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details">PH. NO:</span>  <span class="u-ph"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details">ALTERNET PH: </span> <span class="u-cell"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details"> DOB: </span><span class="u-dob"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details"> AGE: </span><span class="u-age"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details float-left"> ADDRESS: </span><span class="u-address"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details float-left"> LOGIN ID: </span><span class="u-login u-address"></span></p><br>
+                    <p class="user-profile"><span class="user-profile-details"> Registration Date:</span> <span class="u-address u-registration"></span></p><br>
+                    <!-- <p>ADDRESS: <span class="u-address"></span></p> -->
                 </div>
                 
                 
@@ -101,6 +104,6 @@
     
 
 
-    <script src="./profile.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
 </html>

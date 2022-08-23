@@ -1,63 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in Page</title>
-    <link rel="stylesheet" href="./assets/style/reset.css">
-    <link rel="stylesheet" href="./assets/style/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap" rel="stylesheet">
-    
-</head>
-<body>
-
+    <link rel="stylesheet" href="./assets/style/reset.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        
-        <!-- form wrapper -->
-        <div class="from-wrapper" >
+      <!-- form wrapper -->
+      <div class="from-wrapper">
+        <form
+          action="#"
+          method="post"
+          class="user-login-form"
+          onsubmit="handleLogin(event)"
+        >
+          <div class="img-wrapper">
+            <img
+              src="./assets/avatar/1389952697.png"
+              alt="Avatar"
+              class="avatar"
+            />
+          </div>
 
-            <form action="#" method="post" class="user-login-form" onsubmit="handleLogin(event)">
-                <div class="img-wrapper">
-                    <img src="./assets/avatar/1389952697.png" alt="Avatar" class="avatar">
-                </div>
-    
-                <div class="login-wrapper">
-                    <label for="u-email"><b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="u-email" id="u-email" required>
-    
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-                        
-                    <button type="submit" class="submit-btn">Login</button>
-                    <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                </div>
-    
-                <div class="controls-wrapper" style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
-                </div>
-            </form>
+          <div class="login-wrapper">
+            <label for="u-email"><b>Email</b></label>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              name="u-email"
+              id="u-email"
+              required
+            />
 
-            
-        </div>
-        
-       
-        
-        <!-- dashboard  -->
-        
-        
-        
-        
+            <label for="psw"><b>Password</b></label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              id="psw"
+              required
+            />
+            <!-- eye icon -->
+            <i
+              class="far fa-eye eye-icon"
+              id="togglePassword"
+              onclick="togglePassword()"
+            ></i>
+            <span class="badge"
+              >*Pasword must contain atleast one special cherecter , atleast one
+              number and must be in between 6 to 16 charecters</span
+            >
+          </div>
 
+          <button type="submit" class="submit-btn">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember
+            me
+          </label>
 
-
+          <div class="controls-wrapper" style="background-color: #f1f1f1">
+            <button type="button" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
     </div>
-    <script src="./assets/js/index2.js"></script>
-    
-</body>
+    <script src="./assets/js/index.js"></script>
+  </body>
 </html>
